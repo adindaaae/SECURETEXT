@@ -1,0 +1,273 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #ffffff;
+    color: #222222;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px 65px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* WATERMARK LATAR BELAKANG */
+.container::before {
+    content: "ADINDAAAE";
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-size: clamp(45px, 10vw, 110px);
+    font-weight: 900;
+    color: rgba(30, 100, 200, 0.035);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #1677ff, #48b5ff);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(22, 119, 255, 0.2);
+}
+
+.logo span {
+    color: #d8f3ff;
+}
+
+header h1 {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: #1769d2;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #666666;
+    font-size: 14px;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 17px;
+    border: 1px solid #b9e8cb;
+    border-radius: 30px;
+    color: #18864b;
+    background: #effbf3;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #20bd68;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+main {
+    width: 100%;
+    max-width: 720px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border: 1px solid #e5eaf1;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #1769d2;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 18px 0 9px;
+    color: #333333;
+}
+
+textarea,
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d6dce5;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #222222;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus {
+    border-color: #2684ff;
+    box-shadow: 0 0 0 3px rgba(38, 132, 255, 0.1);
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: #aaaaaa;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.buttons button,
+.copy-btn {
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    background: #176fe5;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.buttons button {
+    flex: 1;
+}
+
+.buttons button:hover,
+.copy-btn:hover {
+    background: #0958bd;
+    transform: translateY(-2px);
+}
+
+.result {
+    margin-top: 25px;
+    padding: 18px;
+    border: 1px solid #b9e8cb;
+    background: #f4fff7;
+    border-radius: 12px;
+}
+
+.result h3 {
+    color: #18864b;
+    margin-bottom: 12px;
+}
+
+.result textarea {
+    min-height: 100px;
+    background: white;
+}
+
+.copy-btn {
+    margin-top: 12px;
+}
+
+.error {
+    margin-top: 20px;
+    padding: 13px;
+    background: #fff1f1;
+    border: 1px solid #ffcaca;
+    border-radius: 9px;
+    color: #c62828;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #888888;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+footer p:first-child {
+    color: #1769d2;
+    font-weight: bold;
+}
+
+/* WATERMARK PEMILIK */
+footer::after {
+    content: "Ini Buatan Adindaaae";
+    display: block;
+    margin-top: 8px;
+    color: #1769d2;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 14px 40px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}

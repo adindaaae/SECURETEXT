@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURETEXT | Keamanan Pesan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">S<span>T</span></div>
+            <h1>SECURETEXT</h1>
+            <p>Secure Your Message, Protect Your Privacy</p>
+            <div class="status">
+                <span></span> SYSTEM ONLINE
+            </div>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>Enkripsi & Dekripsi Pesan</h2>
+                <p class="description">
+                    Lindungi pesan rahasia menggunakan teknologi
+                    AES-256-GCM.
+                </p>
+
+                <form method="POST">
+
+                    <label for="pesan">Pesan</label>
+                    <textarea
+                        id="pesan"
+                        name="pesan"
+                        placeholder="Masukkan pesan atau teks terenkripsi..."
+                        required>{{ pesan }}</textarea>
+
+                    <label for="password">Password Keamanan</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Masukkan password..."
+                        required>
+
+                    <div class="buttons">
+                        <button type="submit" name="mode" value="encrypt">
+                            🔒 Enkripsi
+                        </button>
+
+                        <button type="submit" name="mode" value="decrypt">
+                            🔓 Dekripsi
+                        </button>
+                    </div>
+
+                </form>
+
+                {% if hasil %}
+                <div class="result">
+                    <h3>Hasil Berhasil Diproses</h3>
+                    <textarea id="hasil" readonly>{{ hasil }}</textarea>
+                    <button type="button" class="copy-btn"
+                        onclick="salinHasil()">
+                        Salin Hasil
+                    </button>
+                </div>
+                {% endif %}
+
+                {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+            </section>
+        </main>
+
+        <footer>
+            <p>SECURETEXT © 2026</p>
+            <p>Python | Flask | AES-256-GCM</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function salinHasil() {
+            const hasil = document.getElementById("hasil");
+            navigator.clipboard.writeText(hasil.value)
+                .then(() => alert("Hasil berhasil disalin!"))
+                .catch(() => alert("Gagal menyalin hasil."));
+        }
+    </script>
+
+</body>
+</html>
