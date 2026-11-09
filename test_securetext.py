@@ -9,14 +9,12 @@ print("================================")
 pesan = "Data rahasia mahasiswa"
 password = "Secure123!"
 
-# Pengujian enkripsi
 hasil_enkripsi = encrypt_message(pesan, password)
 
 print("\n[1] Pengujian Enkripsi")
 print("Status: BERHASIL")
 print("Ciphertext:", hasil_enkripsi)
 
-# Pengujian dekripsi
 hasil_dekripsi = decrypt_message(
     hasil_enkripsi,
     password
@@ -29,7 +27,6 @@ assert hasil_dekripsi == pesan
 print("Status: BERHASIL")
 print("Pesan asli:", hasil_dekripsi)
 
-# Pengujian password salah
 print("\n[3] Pengujian Password Salah")
 
 try:
@@ -39,7 +36,6 @@ try:
 except ValueError:
     print("Status: BERHASIL - Password ditolak!")
 
-# Pengujian ciphertext berubah
 print("\n[4] Pengujian Data Rusak")
 
 data_rusak = hasil_enkripsi[:-4] + "AAAA"
